@@ -70,7 +70,11 @@ class Ticket(object):
 		elem = self.browser.find_element_by_class_name('touclick-image')
 		self.browser.save_screenshot('./captcha.png')
 
-		s = raw_input('please check the screenshot and input the image to be selected (0~7, Separated by empty char):\n')
+		#s = raw_input('please check the screenshot and input the image to be selected (0~7, Separated by empty char):\n')
+		print 'please check the screenshot and input the image to be selected by the pipe file (0~7, Separated by empty char)'
+		s = None
+		with open('./pipe', 'r') as f:
+			s = f.read()
 		s = s.split()
 		for i in s:
 			i = int(i)
