@@ -175,6 +175,8 @@ class Ticket(object):
 			# submit
 			self.browser.find_element_by_id('submitOrder_id').click()
 			WebDriverWait(self.browser, 8).until(expected_conditions.visibility_of_element_located((By.ID, 'qr_submit_id')))
+			while self.browser.find_element_by_id('qr_submit_id').get_attribute('class') != 'btn92s':
+				pass
 			self.browser.find_element_by_id('qr_submit_id').click()
 			WebDriverWait(self.browser, 15).until(expected_conditions.presence_of_element_located((By.ID, 'payButton')))
 
