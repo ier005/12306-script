@@ -143,6 +143,8 @@ class Ticket(object):
 				self.browser.delete_cookie('_jc_save_fromDate')
 				if flag:
 					break
+			# keep login status
+                        self.browser.get('https://kyfw.12306.cn/otn/index/initMy12306')
 
 
 	def submit_order(self, seat_index):
